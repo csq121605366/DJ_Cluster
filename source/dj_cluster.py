@@ -1,6 +1,4 @@
-import mysql_connect
-import neighbor_com
-import density_Join
+from source import density_Join, mysql_connect, neighbor_com
 
 #Neighbor半径 0.5
 eps = 2
@@ -8,7 +6,7 @@ eps = 2
 min_pts = 50
 
 # 获取原始数据集
-data = list(mysql_connect.load_data('localhost','root','wsnxdyj','user_trace'))
+data = list(mysql_connect.load_data('localhost', 'root', 'wsnxdyj', 'user_trace'))
 data = list(map(list, data))
 
 #unprocessed_data包含未处理的点
@@ -53,4 +51,4 @@ print('nums of clusters:{}'.format(len(processed_data)))
 print('nums of noise:{}'.format(len(noise_data)))
 
 #更新数据库
-mysql_connect.update_database('localhost','root','wsnxdyj','user_trace', processed_data)
+mysql_connect.update_database('localhost', 'root', 'wsnxdyj', 'user_trace', processed_data)

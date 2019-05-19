@@ -1,4 +1,5 @@
-import disCompute
+from source import disCompute
+
 
 #计算density-based neighborhood
 def Compute_Neighbor(point, original_data, eps, min_pts):
